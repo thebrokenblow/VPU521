@@ -7,5 +7,7 @@
   <Project Path="Lesson1/Lesson1.csproj" />
   <Project Path="Lesson2.Example1/Lesson2.Example1.csproj" Id="3dea0f10-20d9-412e-914d-71c13cc2d52d" />
   <Project Path="Lesson2.Example2/Lesson2.Example2.csproj" Id="78f75694-8fc8-4a92-93dc-d554d69c43d2" />
+  <Project Path="Lesson3/Lesson3.csproj" Id="a6b23758-db84-4c3d-82e2-a1928302159f" />
+  <Project Path="Lesson4/Lesson4.csproj" Id="dfdfcc18-9b36-4c8b-9852-e7875b1f91de" />
   <Project Path="SimpleMath/SimpleMath.vcxproj" Id="3910643e-ed5e-4ff9-a17f-a7fd33455e26" />
 </Solution>
