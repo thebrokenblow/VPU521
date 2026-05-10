@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using Lesson4.ViewModel;
+using System.Windows;
 
 namespace Lesson4;
 
@@ -11,45 +11,11 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = new MainViewModel(ChangeStateView);
     }
 
-    private void Button_Click1(object sender, RoutedEventArgs e)
+    private void ChangeStateView(Action action)
     {
-        var value = decimal.Parse(Number1.Text);
-
-        var thread = new Thread(() => CalculateSumNumber(
-            value,
-            isEnabled => Button1.IsEnabled = isEnabled,
-            result => { Result1.Text = result; }));
-
-        thread.Start();
-    }
-
-    private void Button_Click2(object sender, RoutedEventArgs e)
-    {
-        var value = decimal.Parse(Number2.Text);
-
-        var thread = new Thread(() => CalculateSumNumber(
-            value,
-            isEnabled => Button2.IsEnabled = isEnabled,
-            result => { Result2.Text = result; }));
-
-        thread.Start();
-    }
-
-
-    private static void CalculateSumNumber(decimal value, Action<bool> setEnabledButton, Action<string> setResult)
-    {
-        var sum = 0m;
-
-        Application.Current.Dispatcher.BeginInvoke(() => setEnabledButton.Invoke(false));
-
-        for (int i = 1; i < value; i++)
-        {
-            sum += value;
-        }
-
-        Application.Current.Dispatcher.BeginInvoke(() => setEnabledButton.Invoke(true));
-        Application.Current.Dispatcher.BeginInvoke(() => setResult.Invoke(sum.ToString()));
+        Application.Current.Dispatcher.BeginInvoke(action);
     }
 }

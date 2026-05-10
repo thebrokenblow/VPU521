@@ -5,27 +5,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Lesson4"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:Lesson4.ViewModel;assembly=Lesson4.ViewModel"
     Title="MainWindow"
     Width="800"
     Height="450"
+    d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
     mc:Ignorable="d">
     <Grid>
         <StackPanel>
             <StackPanel>
-                <TextBlock Name="Result1" Text="Результат: " />
-                <TextBox x:Name="Number1" />
-                <Button
-                    Name="Button1"
-                    Click="Button_Click1"
-                    Content="Сумма" />
+                <TextBlock Text="{Binding Result1}" />
+                <TextBox Text="{Binding Number1}" />
+                <Button Command="{Binding CalculateSum1}" Content="Сумма" />
+                <Button Command="{Binding CancelSum1}" Content="Отмена" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Name="Result2" Text="Результат: " />
-                <TextBox x:Name="Number2" />
+                <TextBlock Text="{Binding Result2}" />
+                <TextBox Text="{Binding Number2}" />
                 <Button
                     Name="Button2"
-                    Click="Button_Click2"
+                    Command="{Binding CalculateSum2}"
                     Content="Сумма" />
+                <Button Command="{Binding CancelSum2}" Content="Отмена" />
             </StackPanel>
         </StackPanel>
     </Grid>
